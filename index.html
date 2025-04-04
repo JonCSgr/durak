@@ -40,7 +40,7 @@
         }
         
         .container {
-            max-width: 100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -354,29 +354,48 @@
             regularPlayers.forEach(player => {
                 stats[player] = {
                     name: player,
-                    totalWins: 0,     // This now counts days won
-                    gamesWon: 0,      // This counts individual games won
-                    matchesWon: 0      // Number of days they've won
+                    totalWins: 0,     // Days won (as the winner)
+                    gamesWon: 0,      // Individual games won
+                    matchesWon: 0,     // Days won (same as totalWins for now)
+                    sessionsAttended: 0 // To be implemented
                 };
             });
             
-            // Add stats from matches
+            // Get unique dates to count days correctly
+            const uniqueDates = new Set();
+            matches.forEach(match => uniqueDates.add(match.date));
+            
+            // Create a map of winners by date
+            const winnersByDate = {};
+            matches.forEach(match => {
+                if (!winnersByDate[match.date]) {
+                    winnersByDate[match.date] = new Set();
+                }
+                winnersByDate[match.date].add(match.winner);
+            });
+            
+            // Count unique days won per player
+            Object.entries(winnersByDate).forEach(([date, winners]) => {
+                winners.forEach(winner => {
+                    if (stats[winner]) {
+                        stats[winner].totalWins += 1;
+                        stats[winner].matchesWon += 1;
+                    }
+                });
+            });
+            
+            // Add game wins
             matches.forEach(match => {
                 // If winner is not in regularPlayers, add them
                 if (!stats[match.winner]) {
                     stats[match.winner] = {
                         name: match.winner,
-                        totalWins: 0,
+                        totalWins: 1, // They won at least this day
                         gamesWon: 0,
-                        matchesWon: 0
+                        matchesWon: 1,
+                        sessionsAttended: 0
                     };
                 }
-                
-                // Each match (day) counts as one win for overall statistics
-                stats[match.winner].totalWins += 1;
-                
-                // Track matches won (days)
-                stats[match.winner].matchesWon += 1;
                 
                 // Track individual games won
                 if (match.winCount !== null) {
