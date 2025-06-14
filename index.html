@@ -2,141 +2,158 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>ΦρίζαBet - Τα Πάντα Παίζονται</title>
+  <title>ΦρίζαBet – Τα Πάντα Παίζονται</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f4f7;
       margin: 0;
       padding: 0;
-      color: #222;
+      color: #1f1f1f;
     }
 
-    .wrapper {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      color: #1e1e1e;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #0d1b2a;
     }
 
-    .bet-table {
-      width: 100%;
-      border-collapse: collapse;
+    .bet-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.2s ease;
     }
 
-    .bet-table th, .bet-table td {
-      padding: 14px 12px;
-      text-align: left;
+    .bet-card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
     }
 
-    .bet-table th {
-      background-color: #f7f7f7;
+    .question {
+      font-size: 1.2rem;
       font-weight: 600;
-    }
-
-    .bet-table tr:nth-child(even) {
-      background-color: #fafafa;
+      margin-bottom: 16px;
     }
 
     .odds {
       display: flex;
-      gap: 12px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .odds button {
-      padding: 8px 16px;
-      background-color: #1a73e8;
+      flex: 1;
+      min-width: 100px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #0066ff;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s ease;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
     .odds button:hover {
-      background-color: #0c56c2;
+      background-color: #004ecc;
+      transform: scale(1.02);
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #555;
       text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 600px) {
+      .odds {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .question {
+        font-size: 1.05rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>ΦρίζαBet – Χιουμοριστικά Στοιχήματα</h1>
+  <div class="container">
+    <h1>ΦρίζαBet – Τα Πάντα Παίζονται</h1>
 
-    <table class="bet-table">
-      <thead>
-        <tr>
-          <th>Στοίχημα</th>
-          <th>Αποδόσεις</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Θα γαμήσει ο Φρίζα*</td>
-          <td class="odds">
-            <button>Ναι (2.20)</button>
-            <button>Όχι (1.50)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα πιάσει αντρικό μόριο</td>
-          <td class="odds">
-            <button>Ναι (1.80)</button>
-            <button>Όχι (1.80)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα φασώσει γένος αρσενικό</td>
-          <td class="odds">
-            <button>Ναι (1.30)</button>
-            <button>Όχι (2.00)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα πάρει βίζιτα 1 φορά όλο το καλοκαίρι</td>
-          <td class="odds">
-            <button>Ναι (2.15)</button>
-            <button>Όχι (1.30)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα πάρει βίζιτα 2 φορές</td>
-          <td class="odds">
-            <button>Ναι (1.90)</button>
-            <button>Όχι (1.60)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα πάρει βίζιτα &gt; 2 φορές όλο το καλοκαίρι</td>
-          <td class="odds">
-            <button>Ναι (1.10)</button>
-            <button>Όχι (4.75)</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Θα πάρει παρτούζα βίζιτες</td>
-          <td class="odds">
-            <button>Ναι (1.35)</button>
-            <button>Όχι (1.40)</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="bet-card">
+      <div class="question">Θα γαμήσει ο Φρίζα*</div>
+      <div class="odds">
+        <button>Ναι (2.20)</button>
+        <button>Όχι (1.50)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα πιάσει αντρικό μόριο</div>
+      <div class="odds">
+        <button>Ναι (1.80)</button>
+        <button>Όχι (1.80)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα φασώσει γένος αρσενικό</div>
+      <div class="odds">
+        <button>Ναι (1.30)</button>
+        <button>Όχι (2.00)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα πάρει βίζιτα 1 φορά όλο το καλοκαίρι</div>
+      <div class="odds">
+        <button>Ναι (2.15)</button>
+        <button>Όχι (1.30)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα πάρει βίζιτα 2 φορές</div>
+      <div class="odds">
+        <button>Ναι (1.90)</button>
+        <button>Όχι (1.60)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα πάρει βίζιτα &gt; 2 φορές όλο το καλοκαίρι</div>
+      <div class="odds">
+        <button>Ναι (1.10)</button>
+        <button>Όχι (4.75)</button>
+      </div>
+    </div>
+
+    <div class="bet-card">
+      <div class="question">Θα πάρει παρτούζα βίζιτες</div>
+      <div class="odds">
+        <button>Ναι (1.35)</button>
+        <button>Όχι (1.40)</button>
+      </div>
+    </div>
 
     <div class="footer">
       *Όροι και Προϋποθέσεις: Η κοπέλα πρέπει να το κάνει χωρίς πληρωμή και να βλέπεται τουλάχιστον 5/10.
@@ -144,9 +161,9 @@
   </div>
 
   <script>
-    document.querySelectorAll(".odds button").forEach(button => {
-      button.addEventListener("click", () => {
-        alert("Καταγράφηκε! Καλή τύχη! 🧿 (ναι οκ, χιούμορ είναι)");
+    document.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert("Καταγράφηκε το στοίχημά σου! 💸");
       });
     });
   </script>
